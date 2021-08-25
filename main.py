@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+import crawler
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == '__main__':
+    crawler.get_html_from_url("https://www.google.de/?hl=de")
