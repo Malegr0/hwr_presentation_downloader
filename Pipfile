@@ -5,8 +5,7 @@ name = "pypi"
 
 [packages]
 flask = "*"
-requests = "*"
-beautifulsoup4 = "*"
+pdfkit = "*"
 
 [dev-packages]
 
