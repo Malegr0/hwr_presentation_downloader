@@ -14,5 +14,3 @@ def get_html_from_url(website_url: str) -> str:
     html_website = requests.get(website_url)
     html_string = html_website.text
     return html_string
-
-
