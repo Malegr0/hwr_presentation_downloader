@@ -13,4 +13,4 @@ def get_pdf_from_url(website_url: str):
     """
     path = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
     config = pdfkit.configuration(wkhtmltopdf=path)
-    pdfkit.from_url(website_url, r'../exports/out.pdf', configuration=config)
+    pdfkit.from_url(website_url, r'.\resources\exports\out.pdf', configuration=config)
