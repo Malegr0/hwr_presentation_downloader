@@ -20,6 +20,12 @@ def get_pdf_from_url(website_url: str, output_path: str, wkhtmltopdf_path: str):
 
 
 def get_all_addresses_from_url(website_url: str) -> list:
+    """
+    Method to get all sub URL's from an URL.
+
+    :param website_url: URL of on of the pdf files
+    :return: List of URL's as strings
+    """
     while website_url[-1] != '/':
         website_url = website_url[:-1]
     response_code = 404

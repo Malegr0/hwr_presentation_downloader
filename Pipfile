@@ -8,6 +8,7 @@ flask = "*"
 pdfkit = "*"
 templates = "*"
 requests = "*"
+PyPdf2 = '*'
 
 [dev-packages]
 
