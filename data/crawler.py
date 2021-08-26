@@ -1,14 +1,10 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-import imgkit
-import requests
-from bs4 import BeautifulSoup
-from requests_html import HTMLSession
+
 import pdfkit
 
 
-
-def get_pdf_from_url(website_url: str) -> str:
+def get_pdf_from_url(website_url: str):
     """
     Method to receive the html text of an url.
 
