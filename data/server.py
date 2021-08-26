@@ -3,11 +3,12 @@
 
 import flask
 import json
+import os
 from PyPDF2 import PdfFileMerger
-from flask import request, render_template
+from flask import request, render_template, send_file, send_from_directory
 from data import crawler
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_folder='..\\resources\\exports')
 app.config["DEBUG"] = True
 
 
@@ -19,9 +20,15 @@ def hwr_pdf_downloader():
     json_paths = json.load(open(r'.\resources\config.json'))
     urls = crawler.get_all_addresses_from_url(link)
     i = 1
+    output_pdfs = []
     for url in urls:
         output_path = json_paths['resource_path'] + str(i) + ".pdf"
         crawler.get_pdf_from_url(url, output_path, json_paths['wkhtmltopdf'])
+        output_pdfs.append(output_path)
         i += 1
-
-    return "Done"
+    merger = PdfFileMerger()
+    for pdf in output_pdfs:
+        merger.append(pdf)
+    merger.write(json_paths['resource_path'] + "result.pdf")
+    merger.close()
+    return send_from_directory(app.static_folder, "result.pdf")
