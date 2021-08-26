@@ -14,5 +14,5 @@ def hwr_pdf_downloader():
     link = request.args.get('link')
     if link is None or len(link) < 1:
         return render_template('pdf_downloader.html')
-    crawler.get_pdf_from_url(link)
+    print(crawler.get_all_addresses_from_url(link))
     return "Done"
