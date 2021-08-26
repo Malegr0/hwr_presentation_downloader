@@ -5,16 +5,17 @@ import pdfkit
 import requests
 
 
-def get_pdf_from_url(website_url: str):
+def get_pdf_from_url(website_url: str, output_path: str):
     """
     Method to receive the html text of an url.
 
+    :param output_path: Path to the exports folder
     :param website_url: String of the url which will be searched for
     :return: complete html text as string
     """
     path = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
     config = pdfkit.configuration(wkhtmltopdf=path)
-    pdfkit.from_url(website_url, r'.\resources\exports\out.pdf', configuration=config)
+    pdfkit.from_url(website_url, output_path, configuration=config)
 
 
 def get_all_addresses_from_url(website_url: str) -> list:
